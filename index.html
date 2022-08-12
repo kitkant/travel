@@ -21,7 +21,24 @@
 <body>
     <header class="header">
         <div class="header-section"> 
-            <a class="logo" href="#">Travel Portal</a>
+            <a class="logo" href="#"><span class="logo_trvel">Travel Portal</span></a>
+            <div class="menu_icon">
+               
+            </div>
+            <div class="burger">
+                <img class="burger-esc" src="src/mobile/burger/x.svg" alt="esc">
+                
+                <nav class="burger-nav">
+                    <ul class="burger-menu">
+                        <li><a class="menu_link" href="#preview">How It Works</a></li>
+                        <li><a class="menu_link" href="#destinations">Destinations</a></li>
+                        <li><a class="menu_link" href="#steps">Plan Your Trip</a></li>
+                        <li><a class="menu_link" href="#stories">Travel Stories</a></li>
+                        <li><a class="menu_link" >Account</a></li>
+                        <li><a class="menu_link" >Social Media</a></li>
+                    </ul>
+                </nav>
+            </div>
             <nav class="header-nav">
                 <ul class="menu">
                     <li><a class="menu_link" href="#preview">How It Works</a></li>
@@ -48,21 +65,21 @@
             <h2 class="steps-title" id="steps">3 STEPS TO THE PERFECT TRIP</h2>
             <div class="steps-cards">
                 <div class="card card_1">
-                    <img class="card_img" src="src/bike.svg" alt="">
+                    <img class="card_img_1" src="src/bike.svg" alt="">
                     <p class="card_text">
                         Tell us what you want to do
                     </p>
                 </div>
                 <div class="card card_2">
-                    <img class="card_img" src="src/calendar.svg" alt="">
+                    <img class="card_img_2" src="src/calendar.svg" alt="">
                     <p class="card_text">
                         Share us preferable dates 
                     </p>
                 </div>
                 <div class="card card_3">
-                    <img class="card_img" src="src/plane.svg" alt="">
+                    <img class="card_img_3" src="src/plane.svg" alt="">
                     <p class="card_text">
-                        We will give you recommendations
+                       <span>We will give you</span> <span>recommendations</span>
                     </p>
                 </div>
             </div>
@@ -71,21 +88,25 @@
             <h2 class="destinations-title" id="destinations">POPULAR DESTINATIONS</h2>
             <div class="container">
                 <div class="slide spain slide-left">
-
+                    <p class="slide_text">SPAIN</p>
                 </div>   
                 <div class="slide japan slide-main">
                     <p class="slide_text">JAPAN</p>
                 </div> 
                 <div class="slide usa slide-right ">
                     <p class="slide_text">USA</p>
-                </div>       
+                </div>
+                <div class="arrow_container">
+                    <img class="arrow-left" src="src/mobile/slider/arr_dull.svg" alt="">
+                    <img class="arrow-right" src="src/mobile/slider/arr.svg" alt="">
+                </div>   
             </div>
             <div class="slide-pick">
                 <div class="pick"></div>
                 <div class="pick main-pick"></div>
                 <div class="pick"></div>
             </div>
-            <div class="wrapper"><button class="btn arrow-btn grow_ellipse">Find More</button></div>
+            <button class="btn arrow-btn">Find More</button>
         </section>
         <section class="stories">
             <h2 class="stories-title" id="stories">TRAVEL STORIES</h2>
@@ -132,9 +153,9 @@
         <div class="footer-conteiner">
             <p class="footer-text">All Rights Reserved © Travel Portal</p>
             <ul class="footer-list">
-                <li class="social"><a  href="https://github.com/kitkant" target="_blank"><img src="src/footer/inst.svg" alt="insta"></a></li>
+                <li class="social"><a  href="https://rs.school/js-stage0/" target="_blank"><img src="src/footer/inst.svg" alt="insta"></a></li>
                 <li class="social"><a  href="https://github.com/kitkant" target="_blank"><img src="src/footer/youtube.svg" alt="youtube"></a></li>
-                <li class="social"><a  href="https://github.com/kitkant" target="_blank"><img src="src/footer/twitter.svg" alt="twitter"></a></li>
+                <li class="social"><a  href="https://github.com/rolling-scopes-school" target="_blank"><img src="src/footer/twitter.svg" alt="twitter"></a></li>
             </ul>
         </div>
     </footer>
