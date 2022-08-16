@@ -1,5 +1,7 @@
 const picks = document.querySelectorAll('.pick')
 const slides = document.querySelectorAll('.slide')
+const slideText = document.querySelectorAll('.slide_text')
+const container = document.querySelector('.slide_container')
 const logo = document.querySelector('.logo')
 
 const menuIcon = document.querySelector('.menu_icon')
@@ -9,27 +11,85 @@ const burger = document.querySelector('.burger')
 const storiesImgs = document.querySelectorAll('.stories-img')
 const sectionCardText = document.querySelectorAll('.section-card_text')
 
+const slideLeft = document.querySelector('.slide-left'),
+      slideMain = document.querySelector('.slide-main'),
+      slideRight = document.querySelector('.slide-right')
+
 const screenWidth = window.screen.availWidth
 
-const contry = {
-    0: '../src/slider/spain.jpg',
-    1: '../src/slider/japan.jpg',
-    2: '../src/slider/usa.jpg'
+let activeOrder
+
+const DBSlides = {
+    0: {
+        src: './src/slider/spain.jpg',
+        p: 'SPAIN'
+    },
+    1: {
+        src: './src/slider/japan.jpg',
+        p: 'JAPAN'
+    },
+    2: {
+        src: './src/slider/usa.jpg',
+        p: 'USA'
+    }
 }
-var myImage = new Image();
-myImage.src = contry[0];
+const update = () =>{
+    const {width, height} = container.getBoundingClientRect()
+    for( let i = 0; i < slides.length; i++){
+        const leftSlide = document.querySelector(
+            `.slide[data-order="${activeOrder - i}"]`
+        )
+        const rightSlide = document.querySelector(
+            `.slide[data-order="${activeOrder + i}"]`
+        )
+        console.log(leftSlide, rightSlide, activeOrder )
+    }
 
+    
+}
+const fillSlide = () =>{
+    slides.forEach((slide, index) =>{
+        slide.dataset.order = index
+        slide.style.backgroundImage = `url(${DBSlides[index].src})`
+        slideText[index].innerHTML = DBSlides[index].p
+        slide.addEventListener('click', clickHandler(slide)) 
+        
+    })
+    
+    update()
+}
+ 
+let num = 1 + 1
 
+//  Возможно для выхода за пределы массива
+function arrNum(num) {
+    if(num > arrContry.length - 1)
+    {
+        num = arrNum(num - arrContry.length)
+    }
+   return num
+}
+slideRight.addEventListener('click', () =>{
+    
+})
+function clickHandler(slide){
+  
+    const order = parseInt(slide.dataset.order, 3)
+    activeOrder = order
+    update()
+  
+}
 picks.forEach( (pick, index) => {
     
     pick.addEventListener("click", () => {
-        cleareActiveSlide()
+        // cleareActiveSlide()
         clearPick()
-        activeSlide(index)
+        
         pick.classList.add("main-pick")
 
     })
 })
+
 const changeImg = () => {
     console.log(window.screen.availWidth)
     if( window.screen.availWidth <= 390)
@@ -40,10 +100,10 @@ const changeImg = () => {
             })
     }
     if(window.screen.availWidth > 390){
-        console.log('s1s')
+        
         storiesImgs.forEach((img, index) =>  {
             img.src = `src/storiese/card${index + 1}.jpg`
-            console.log('ss')
+          
             })
     }
 }
@@ -62,7 +122,7 @@ const changeText = () =>{
    
 }
 
-console.log(storiesImgs[0].src)
+
 
 function app(){
     if (window.screen.availWidth <= 390) {
@@ -70,12 +130,16 @@ function app(){
         document.querySelector('.card_img_2').src = "src/mobile/steps/calendar.svg";
         document.querySelector('.card_img_3').src = "src/mobile/steps/plane.svg";
         
+        activeOrder = 0
+
         changeText()
         clearPick()
         changeImg()
         picks[0].classList.add('main-pick')
       }
       else{
+        activeOrder = 1
+        fillSlide()
         
         document.querySelector('.card_img_1').src = "src/bike.svg";
         document.querySelector('.card_img_2').src = "src/calendar.svg";
@@ -83,25 +147,22 @@ function app(){
       }
 }
 
-function cleareActiveSlide(){
-    slides.forEach((slide, index)=>{
-        for(let i = 0; i <= 2; i++)
-        {
-            slide.classList.remove(`${contry[i]}`)
-        }
+
+// function cleareActiveSlide(){
+//     slides.forEach((slide, index)=>{
+//         for(let i = 0; i <= 2; i++)
+//         {
+//             slide.classList.remove(`${contry[i]}`)
+//         }
         
-    })
-}
+//     })
+// }
 const clearPick = () =>{
     picks.forEach(event =>{
         event.classList.remove('main-pick')
     })
 }
 
-function activeSlide(num){
-        slides[1].classList.add(`${contry[num]}`)
-            
-}
 
 menuIcon.addEventListener('click', ()=>{
     burger.classList.add('_active')
