@@ -109,13 +109,7 @@ menuIcon.addEventListener('click', ()=>{
 burgerEsc.addEventListener('click', ()=>{
     burger.classList.remove('_active')
 })
-document.addEventListener('click', target=>{
-    if(target.path[0] !== burger && target.path[0] !== menuIcon){
-        burger.classList.remove('_active')
-         
-    }
-        
-})
+
 window.addEventListener('resize', ()=>{
     if (window.screen.availWidth <= 390) {
         document.querySelector('.card_img_1').src = "src/mobile/steps/bike.svg";
@@ -138,4 +132,31 @@ window.addEventListener('resize', ()=>{
       
 })
 
+new Swiper('.swiper', {
+    simulateTouch: false,
+    slidesPerView: 1,
+    initialSlide: 1,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    breakpoints: {
+        391:{
+            shortSwipes: false,
+            initialSlide: 1,
+            slidesPerView: 1.7,
+            centeredSlides: true,
+            spaceBetween: 71,
+            loop: true,
+            simulateTouch: false
+         }
+
+    }
+    
+})
 app()

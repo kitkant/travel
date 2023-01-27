@@ -34,9 +34,9 @@ document.body.append(div)
 }
 
 const addDisplay = () =>{
-    header.classList.add('display')
-    main.classList.add('display')
-    footer.classList.add('display')
+    // header.classList.add('display')
+    // main.classList.add('display')
+    // footer.classList.add('display')
     login.classList.remove('display')
  
 }
@@ -115,18 +115,19 @@ document.addEventListener('keydown', event => {
 
 document.addEventListener('click', (target)=>{
 
-    switch(target.path[0]) {
-        case document.querySelector("body"):
+    
+    switch(target.composedPath()[0].className) {
+        case "body":
             removeDisplay()
             break
-        case document.querySelector('.sign_in_link'):
-            loginForm()
-            break
-        case  document.querySelector('.register_link'):
+        case  'register_link':
             registerForm()
             break
-        case document.querySelector('.else_btn'):
-            alert('...')
+        case 'sign_in_link':
+            loginForm()
+            break
+        case 'else_btn':
+            removeDisplay()
             break
         }
 })
